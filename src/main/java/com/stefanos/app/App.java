@@ -2,22 +2,33 @@ package com.stefanos.app;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class App {
   public static void main(String[] args) {
-    Bank bos = new Bank("10");
-    bos.addUser(new User(101, 500.00, 1234));
-    bos.addUser(new User(102, 600.00, 1245));
-
-    Bank loyds = new Bank("20");
-    loyds.addUser(new User(201, 699.69, 8008));
+    // Test data for banks and users
+    Bank bos = new Bank("12");
+    bos.addUser(new User(123456, 500.0, 1234));
+    bos.addUser(new User(123444, 6969.0, 1111));
 
     List<Bank> banks = new ArrayList<>();
     banks.add(bos);
-    banks.add(loyds);
+
     Atm atm = new Atm(banks);
 
-    atm.processTransaction(101, 1234);
-    atm.processTransaction(201, 8008);
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.println("Welcome to Stefanos' ATM!");
+
+    // Prompt for account number and prin
+    System.out.println("Enter your account number");
+    int accNo = scanner.nextInt();
+    System.out.println("Enter your pin");
+    int pin = scanner.nextInt();
+
+    // Authenticate user and display menu
+    atm.processTransaction(accNo, pin, scanner);
+
+    scanner.close();
   }
 }
