@@ -8,8 +8,8 @@ public class App {
   public static void main(String[] args) {
     // Test data for banks and users
     Bank bos = new Bank("12");
-    bos.addUser(new User(123456, 500.0, 1234));
-    bos.addUser(new User(123444, 6969.0, 1111));
+    bos.addUser(new User(123456, 500.0, 1234, "test", "test"));
+    bos.addUser(new User(123444, 6969.0, 1111, "test", "test"));
 
     List<Bank> banks = new ArrayList<>();
     banks.add(bos);
